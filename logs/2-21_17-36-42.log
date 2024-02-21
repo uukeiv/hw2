@@ -1,0 +1,92 @@
+[17:36:42.163] [INFO   ] thread bguspl.set.Main.main() starting.
+[17:36:42.166] [SEVERE ] cannot read configuration file config.properties trying from resources.
+[17:36:42.167] [SEVERE ] configuration file was loaded from resources directory.
+[17:36:42.726] [INFO   ] thread dealer starting.
+[17:36:42.727] [INFO   ] thread dealer starting.
+[17:36:42.728] [INFO   ] thread Thread-1 starting.
+[17:36:42.728] [INFO   ] thread Thread-2 starting.
+[17:36:42.834] [SEVERE ] placing card 80 in slot 0
+[17:36:42.935] [SEVERE ] placing card 11 in slot 1
+[17:36:43.036] [SEVERE ] placing card 25 in slot 2
+[17:36:43.139] [SEVERE ] placing card 7 in slot 3
+[17:36:43.241] [SEVERE ] placing card 3 in slot 4
+[17:36:43.343] [SEVERE ] placing card 36 in slot 5
+[17:36:43.445] [SEVERE ] placing card 19 in slot 6
+[17:36:43.546] [SEVERE ] placing card 46 in slot 7
+[17:36:43.648] [SEVERE ] placing card 55 in slot 8
+[17:36:43.749] [SEVERE ] placing card 34 in slot 9
+[17:36:43.850] [SEVERE ] placing card 22 in slot 10
+[17:36:43.951] [SEVERE ] placing card 74 in slot 11
+[17:36:43.952] [SEVERE ] updating countdown to 60000
+[17:36:44.049] [SEVERE ] updating countdown to 59903
+[17:36:44.144] [SEVERE ] updating countdown to 59808
+[17:36:44.239] [SEVERE ] updating countdown to 59713
+[17:36:44.335] [SEVERE ] updating countdown to 59617
+[17:36:44.430] [SEVERE ] updating countdown to 59522
+[17:36:44.525] [SEVERE ] updating countdown to 59427
+[17:36:44.620] [SEVERE ] updating countdown to 59332
+[17:36:44.673] [SEVERE ] key 81 was pressed by player 1
+[17:36:44.673] [SEVERE ] player 1 placing token on slot 0
+[17:36:44.716] [SEVERE ] updating countdown to 59236
+[17:36:44.725] [SEVERE ] key 87 was pressed by player 1
+[17:36:44.725] [SEVERE ] player 1 placing token on slot 1
+[17:36:44.774] [SEVERE ] key 69 was pressed by player 1
+[17:36:44.774] [SEVERE ] player 1 placing token on slot 2
+[17:36:44.774] [SEVERE ] setting player 1 freeze to 3000
+[17:36:47.777] [SEVERE ] setting player 1 freeze to 0
+[17:36:47.778] [SEVERE ] updating countdown to 56174
+[17:36:47.874] [SEVERE ] updating countdown to 56078
+[17:36:47.970] [SEVERE ] updating countdown to 55982
+[17:36:48.065] [SEVERE ] updating countdown to 55887
+[17:36:48.160] [SEVERE ] updating countdown to 55792
+[17:36:48.255] [SEVERE ] updating countdown to 55697
+[17:36:48.351] [SEVERE ] updating countdown to 55601
+[17:36:48.446] [SEVERE ] updating countdown to 55506
+[17:36:48.542] [SEVERE ] updating countdown to 55410
+[17:36:48.638] [SEVERE ] updating countdown to 55314
+[17:36:48.733] [SEVERE ] updating countdown to 55219
+[17:36:48.828] [SEVERE ] updating countdown to 55124
+[17:36:48.923] [SEVERE ] updating countdown to 55029
+[17:36:49.018] [SEVERE ] updating countdown to 54934
+[17:36:49.114] [SEVERE ] updating countdown to 54838
+[17:36:49.210] [SEVERE ] updating countdown to 54742
+[17:36:49.305] [SEVERE ] updating countdown to 54647
+[17:36:49.400] [SEVERE ] updating countdown to 54552
+[17:36:49.496] [SEVERE ] updating countdown to 54456
+[17:36:49.591] [SEVERE ] updating countdown to 54361
+[17:36:49.686] [SEVERE ] updating countdown to 54266
+[17:36:49.782] [SEVERE ] updating countdown to 54170
+[17:36:49.878] [SEVERE ] updating countdown to 54074
+[17:36:49.973] [SEVERE ] updating countdown to 53979
+[17:36:50.069] [SEVERE ] updating countdown to 53883
+[17:36:50.165] [SEVERE ] updating countdown to 53787
+[17:36:50.260] [SEVERE ] updating countdown to 53692
+[17:36:50.316] [SEVERE ] key 67 was pressed by player 1
+[17:36:50.356] [SEVERE ] updating countdown to 53596
+[17:36:50.451] [SEVERE ] updating countdown to 53501
+[17:36:50.547] [SEVERE ] updating countdown to 53405
+[17:36:50.642] [SEVERE ] updating countdown to 53310
+[17:36:50.737] [SEVERE ] updating countdown to 53215
+[17:36:50.833] [SEVERE ] updating countdown to 53119
+[17:36:50.928] [SEVERE ] updating countdown to 53024
+[17:36:51.023] [SEVERE ] updating countdown to 52929
+[17:36:51.070] [SEVERE ] exit button pressed
+[17:36:51.070] [INFO   ] thread Thread-2 terminated.
+[17:36:51.119] [SEVERE ] updating countdown to 52833
+[17:36:51.214] [SEVERE ] updating countdown to 52738
+[17:36:51.309] [SEVERE ] updating countdown to 52643
+[17:36:51.404] [SEVERE ] updating countdown to 52548
+[17:36:51.500] [SEVERE ] updating countdown to 52452
+[17:36:51.595] [SEVERE ] updating countdown to 52357
+[17:36:51.691] [SEVERE ] updating countdown to 52261
+[17:36:51.786] [SEVERE ] updating countdown to 52166
+[17:36:51.881] [SEVERE ] updating countdown to 52071
+[17:36:51.977] [SEVERE ] updating countdown to 51975
+[17:36:52.073] [SEVERE ] updating countdown to 51879
+[17:36:52.169] [SEVERE ] updating countdown to 51783
+[17:36:52.265] [SEVERE ] updating countdown to 51687
+[17:36:52.361] [SEVERE ] updating countdown to 51591
+[17:36:52.456] [SEVERE ] updating countdown to 51496
+[17:36:52.551] [SEVERE ] updating countdown to 51401
+[17:36:52.647] [SEVERE ] updating countdown to 51305
+[17:36:52.743] [SEVERE ] updating countdown to 51209

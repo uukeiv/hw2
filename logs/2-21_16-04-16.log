@@ -1,0 +1,11 @@
+[16:04:16.778] [INFO   ] thread bguspl.set.Main.main() starting.
+[16:04:16.781] [SEVERE ] cannot read configuration file config.properties trying from resources.
+[16:04:16.782] [SEVERE ] configuration file was loaded from resources directory.
+[16:04:17.503] [INFO   ] thread dealer starting.
+[16:04:17.504] [INFO   ] thread dealer starting.
+[16:04:17.505] [INFO   ] thread Thread-1 starting.
+[16:04:17.505] [INFO   ] thread Thread-2 starting.
+[16:04:17.532] [INFO   ] thread dealer terminated.
+[16:04:22.534] [SEVERE ] thanks for playing... it was fun!
+[16:04:22.537] [INFO   ] thread bguspl.set.Main.main() terminated.
+[16:04:22.540] [SEVERE ] disposing of user interface elements

@@ -1,0 +1,23 @@
+[16:26:07.327] [INFO   ] thread bguspl.set.Main.main() starting.
+[16:26:07.330] [SEVERE ] cannot read configuration file config.properties trying from resources.
+[16:26:07.331] [SEVERE ] configuration file was loaded from resources directory.
+[16:26:07.885] [INFO   ] thread dealer starting.
+[16:26:07.886] [INFO   ] thread dealer starting.
+[16:26:07.887] [INFO   ] thread Thread-1 starting.
+[16:26:07.887] [INFO   ] thread Thread-2 starting.
+[16:26:07.992] [SEVERE ] placing card 16 in slot 0
+[16:26:08.093] [SEVERE ] placing card 77 in slot 1
+[16:26:08.194] [SEVERE ] placing card 6 in slot 2
+[16:26:08.299] [SEVERE ] placing card 17 in slot 3
+[16:26:08.401] [SEVERE ] placing card 11 in slot 4
+[16:26:08.502] [SEVERE ] placing card 14 in slot 5
+[16:26:08.603] [SEVERE ] placing card 73 in slot 6
+[16:26:08.704] [SEVERE ] placing card 21 in slot 7
+[16:26:08.806] [SEVERE ] placing card 65 in slot 8
+[16:26:08.907] [SEVERE ] placing card 48 in slot 9
+[16:26:09.009] [SEVERE ] placing card 33 in slot 10
+[16:26:09.111] [SEVERE ] placing card 39 in slot 11
+[16:26:09.150] [INFO   ] thread dealer terminated.
+[16:26:14.151] [SEVERE ] thanks for playing... it was fun!
+[16:26:14.153] [INFO   ] thread bguspl.set.Main.main() terminated.
+[16:26:14.153] [SEVERE ] disposing of user interface elements

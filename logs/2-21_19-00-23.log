@@ -1,0 +1,111 @@
+[19:00:23.315] [INFO   ] thread bguspl.set.Main.main() starting.
+[19:00:23.318] [SEVERE ] cannot read configuration file config.properties trying from resources.
+[19:00:23.319] [SEVERE ] configuration file was loaded from resources directory.
+[19:00:23.841] [INFO   ] thread dealer starting.
+[19:00:23.842] [INFO   ] thread dealer starting.
+[19:00:23.843] [INFO   ] thread Thread-1 starting.
+[19:00:23.843] [INFO   ] thread Thread-3 starting.
+[19:00:23.843] [INFO   ] thread Thread-2 starting.
+[19:00:23.843] [INFO   ] thread Thread-4 starting.
+[19:00:23.844] [INFO   ] thread computer-2 starting.
+[19:00:23.844] [INFO   ] thread computer-3 starting.
+[19:00:23.953] [SEVERE ] placing card 61 in slot 0
+[19:00:24.064] [SEVERE ] placing card 73 in slot 1
+[19:00:24.174] [SEVERE ] placing card 9 in slot 2
+[19:00:24.284] [SEVERE ] placing card 36 in slot 3
+[19:00:24.394] [SEVERE ] placing card 68 in slot 4
+[19:00:24.503] [SEVERE ] placing card 51 in slot 5
+[19:00:24.611] [SEVERE ] placing card 52 in slot 6
+[19:00:24.721] [SEVERE ] placing card 33 in slot 7
+[19:00:24.830] [SEVERE ] placing card 78 in slot 8
+[19:00:24.939] [SEVERE ] placing card 14 in slot 9
+[19:00:25.048] [SEVERE ] placing card 46 in slot 10
+[19:00:25.157] [SEVERE ] placing card 4 in slot 11
+[19:00:25.157] [SEVERE ] updating countdown to 60000
+[19:00:25.175] [SEVERE ] player 4 placing token on slot 6
+[19:00:25.175] [SEVERE ] player 3 placing token on slot 10
+[19:00:25.192] [SEVERE ] player 4 placing token on slot 1
+[19:00:25.192] [SEVERE ] player 3 placing token on slot 3
+[19:00:25.207] [SEVERE ] player 4 placing token on slot 9
+[19:00:25.207] [SEVERE ] updating countdown to 59950
+[19:00:25.207] [SEVERE ] setting player 4 freeze to 3000
+[19:00:25.210] [SEVERE ] player 3 placing token on slot 9
+[19:00:25.210] [SEVERE ] updating countdown to 59947
+[19:00:25.210] [SEVERE ] setting player 3 freeze to 3000
+[19:00:25.305] [SEVERE ] updating countdown to 59852
+[19:00:25.401] [SEVERE ] updating countdown to 59756
+[19:00:25.496] [SEVERE ] updating countdown to 59661
+[19:00:25.591] [SEVERE ] updating countdown to 59566
+[19:00:25.686] [SEVERE ] updating countdown to 59471
+[19:00:25.782] [SEVERE ] updating countdown to 59375
+[19:00:25.878] [SEVERE ] updating countdown to 59279
+[19:00:25.974] [SEVERE ] updating countdown to 59183
+[19:00:26.070] [SEVERE ] updating countdown to 59087
+[19:00:26.166] [SEVERE ] updating countdown to 58991
+[19:00:26.261] [SEVERE ] updating countdown to 58896
+[19:00:26.357] [SEVERE ] updating countdown to 58800
+[19:00:26.452] [SEVERE ] updating countdown to 58705
+[19:00:26.547] [SEVERE ] updating countdown to 58610
+[19:00:26.643] [SEVERE ] updating countdown to 58514
+[19:00:26.739] [SEVERE ] updating countdown to 58418
+[19:00:26.834] [SEVERE ] updating countdown to 58323
+[19:00:26.929] [SEVERE ] updating countdown to 58228
+[19:00:27.025] [SEVERE ] updating countdown to 58132
+[19:00:27.121] [SEVERE ] updating countdown to 58036
+[19:00:27.216] [SEVERE ] updating countdown to 57941
+[19:00:27.311] [SEVERE ] updating countdown to 57846
+[19:00:27.406] [SEVERE ] updating countdown to 57751
+[19:00:27.501] [SEVERE ] updating countdown to 57656
+[19:00:27.597] [SEVERE ] updating countdown to 57560
+[19:00:27.693] [SEVERE ] updating countdown to 57464
+[19:00:27.788] [SEVERE ] updating countdown to 57369
+[19:00:27.883] [SEVERE ] updating countdown to 57274
+[19:00:27.979] [SEVERE ] updating countdown to 57178
+[19:00:27.990] [SEVERE ] exit button pressed
+[19:00:27.990] [INFO   ] thread Thread-2 terminated.
+[19:00:27.990] [INFO   ] thread Thread-1 terminated.
+[19:00:27.991] [INFO   ] thread computer-3 terminated.
+[19:00:27.992] [INFO   ] thread computer-2 terminated.
+[19:00:28.074] [SEVERE ] updating countdown to 57083
+[19:00:28.074] [SEVERE ] updating countdown to 60000
+[19:00:28.185] [SEVERE ] removing tokens from slot 0
+[19:00:28.185] [SEVERE ] removing card from slot 0
+[19:00:28.295] [SEVERE ] removing tokens from slot 1
+[19:00:28.295] [SEVERE ] removing card from slot 1
+[19:00:28.406] [SEVERE ] removing tokens from slot 2
+[19:00:28.406] [SEVERE ] removing card from slot 2
+[19:00:28.514] [SEVERE ] removing tokens from slot 3
+[19:00:28.514] [SEVERE ] removing card from slot 3
+[19:00:28.624] [SEVERE ] removing tokens from slot 4
+[19:00:28.624] [SEVERE ] removing card from slot 4
+[19:00:28.736] [SEVERE ] removing tokens from slot 5
+[19:00:28.736] [SEVERE ] removing card from slot 5
+[19:00:28.846] [SEVERE ] removing tokens from slot 6
+[19:00:28.846] [SEVERE ] removing card from slot 6
+[19:00:28.956] [SEVERE ] removing tokens from slot 7
+[19:00:28.956] [SEVERE ] removing card from slot 7
+[19:00:29.067] [SEVERE ] removing tokens from slot 8
+[19:00:29.067] [SEVERE ] removing card from slot 8
+[19:00:29.177] [SEVERE ] removing tokens from slot 9
+[19:00:29.177] [SEVERE ] removing card from slot 9
+[19:00:29.285] [SEVERE ] removing tokens from slot 10
+[19:00:29.285] [SEVERE ] removing card from slot 10
+[19:00:29.395] [SEVERE ] removing tokens from slot 11
+[19:00:29.395] [SEVERE ] removing card from slot 11
+[19:00:29.504] [SEVERE ] placing card 45 in slot 0
+[19:00:29.613] [SEVERE ] placing card 0 in slot 1
+[19:00:29.723] [SEVERE ] placing card 21 in slot 2
+[19:00:29.833] [SEVERE ] placing card 49 in slot 3
+[19:00:29.940] [SEVERE ] placing card 54 in slot 4
+[19:00:30.049] [SEVERE ] placing card 25 in slot 5
+[19:00:30.159] [SEVERE ] placing card 64 in slot 6
+[19:00:30.270] [SEVERE ] placing card 30 in slot 7
+[19:00:30.379] [SEVERE ] placing card 75 in slot 8
+[19:00:30.489] [SEVERE ] placing card 48 in slot 9
+[19:00:30.597] [SEVERE ] placing card 19 in slot 10
+[19:00:30.706] [SEVERE ] placing card 15 in slot 11
+[19:00:30.707] [SEVERE ] announcing winner(s): player 1, player 2, player 3, player 4
+[19:00:30.708] [INFO   ] thread dealer terminated.
+[19:00:30.709] [INFO   ] thread dealer terminated.
+[19:00:30.709] [SEVERE ] thanks for playing... it was fun!
+[19:00:30.709] [INFO   ] thread bguspl.set.Main.main() terminated.
