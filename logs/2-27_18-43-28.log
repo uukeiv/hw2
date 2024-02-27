@@ -1,0 +1,28 @@
+[18:43:28.088] [INFO   ] thread bguspl.set.Main.main() starting.
+[18:43:28.093] [SEVERE ] cannot read configuration file config.properties trying from resources.
+[18:43:28.094] [SEVERE ] configuration file was loaded from resources directory.
+[18:43:28.716] [INFO   ] thread dealer starting.
+[18:43:28.717] [INFO   ] thread dealer starting.
+[18:43:28.718] [INFO   ] thread Thread-2 starting.
+[18:43:28.718] [INFO   ] thread Thread-1 starting.
+[18:43:28.718] [INFO   ] thread Thread-4 starting.
+[18:43:28.718] [INFO   ] thread Thread-3 starting.
+[18:43:28.721] [INFO   ] thread computer-2 starting.
+[18:43:28.721] [INFO   ] thread computer-3 starting.
+[18:43:28.827] [SEVERE ] placing card 61 in slot 0
+[18:43:28.936] [SEVERE ] placing card 25 in slot 1
+[18:43:29.048] [SEVERE ] placing card 19 in slot 2
+[18:43:29.160] [SEVERE ] placing card 63 in slot 3
+[18:43:29.270] [SEVERE ] placing card 57 in slot 4
+[18:43:29.381] [SEVERE ] placing card 64 in slot 5
+[18:43:29.491] [SEVERE ] placing card 37 in slot 6
+[18:43:29.601] [SEVERE ] placing card 2 in slot 7
+[18:43:29.712] [SEVERE ] placing card 22 in slot 8
+[18:43:29.823] [SEVERE ] placing card 0 in slot 9
+[18:43:29.935] [SEVERE ] placing card 11 in slot 10
+[18:43:30.044] [SEVERE ] placing card 13 in slot 11
+[18:43:30.046] [SEVERE ] updating countdown to 60000
+[18:43:30.083] [INFO   ] thread dealer terminated.
+[18:43:35.086] [SEVERE ] thanks for playing... it was fun!
+[18:43:39.150] [INFO   ] thread bguspl.set.Main.main() terminated.
+[18:43:39.151] [SEVERE ] disposing of user interface elements

@@ -137,6 +137,8 @@ public class Table {
      */
     public void placeToken(int player, int slot) {
         // TODO implement
+    	if (slotToCard[slot] == null)
+    		return;
     	env.ui.placeToken(player, slot);
     	table.get(slot).add(player);
     }
@@ -222,6 +224,12 @@ public class Table {
     			size++;
 
     	return size;
+    }
+    
+    public boolean hasTokenOn(int id, int slot) {
+    	if (table.get(slot).contains((Integer) id))
+    			return true;	
+    	return false;
     }
     
 }

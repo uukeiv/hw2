@@ -135,6 +135,9 @@ public class Dealer implements Runnable {
             placeCardsOnTable();
             updateTimerDisplay(true);
         }
+        
+        if (!playersThreads.isEmpty())
+        	terminate();
         announceWinners();
         try {
         	Thread.currentThread().sleep(env.config.endGamePauseMillies);
@@ -166,17 +169,12 @@ public class Dealer implements Runnable {
     			players[i].notify();
     			players[i].terminate();
     		}
-    	}
-    	
-    	
-    	// this part might be unnecessary
-    	for (Thread thread : playersThreads) {
     		try {
-    			thread.join();
+    			playersThreads.removeLast().join();
     		}
-    		catch(InterruptedException error) {}	
+    		catch(InterruptedException error) {}
     	}
-
+    	
     	terminate = true;
     }
 
@@ -208,7 +206,9 @@ public class Dealer implements Runnable {
     		terminate = true;
     		return;
     	}
-    	Collections.shuffle(deck);
+    	//only shuffle if all the cards need to be replaced
+    	if (numToPlace == env.config.tableSize)
+    		Collections.shuffle(deck);
     	// places a randomly chosen card from the deck on the table
     	for (int i = 0; i < numToPlace; i++)
     		table.placeCard(deck.remove(i));
@@ -220,14 +220,16 @@ public class Dealer implements Runnable {
     private void sleepUntilWokenOrTimeout() {
         // TODO implement
     	synchronized(this) {
-    		try {
-    			if (warn)
-    				wait(fastWakeUp);
-    			else
-    				wait(wakeUpTime);
-    		}
-    		// a player woke him up
-    		catch(InterruptedException error){
+    		if (playerCheckQueue.isEmpty()) {
+	    		try {
+	    			if (warn)
+	    				wait(fastWakeUp);
+	    			else
+	    				wait(wakeUpTime);
+	    		}
+	    		// a player woke him up
+	    		catch(InterruptedException error){
+	    		}
     		}
     	}
     }
@@ -273,9 +275,9 @@ public class Dealer implements Runnable {
     	// Find the max score and adds the winners
         for (Player player : players) {
         	if (player.score() >= max) {
-        		max = player.score();
         		if (player.score() > max)
         			winners.clear();
+        		max = player.score();
         		winners.add(player.id);
         	}
         }
@@ -332,7 +334,9 @@ public class Dealer implements Runnable {
     private void notifyPlayers() {
     	for (Player player : players) {
     		synchronized(player) {
+    			player.clearActions();
     			player.notify();
+    			player.notifyAi();
     		}
     	}
     		
@@ -342,5 +346,6 @@ public class Dealer implements Runnable {
     public void addPlayerToCheck(int id) {
     	playerCheckQueue.add(id);
     }
+    
    
 }

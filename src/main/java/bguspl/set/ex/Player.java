@@ -3,6 +3,7 @@ package bguspl.set.ex;
 import bguspl.set.Env;
 import java.util.Vector;
 import java.util.Random;
+import java.util.concurrent.*;
 
 /**
  * This class manages the players' threads and data
@@ -60,12 +61,7 @@ public class Player implements Runnable {
     /**
      * The players action queue.
      */
-    private Vector<Integer> actions;
-    
-    /**
-     * The players current tokens.
-     */
-    private Vector<Integer> tokens;
+    private BlockingQueue<Integer> actions;
     
     /**
      * The the player is freezed.
@@ -75,14 +71,8 @@ public class Player implements Runnable {
     /**
      * The sleep time to emulate a real player.
      */
-    private int botTiming = 100;
+    private int botTiming = 1000;
 
-    
-    /**
-     * Signifies the first element 
-     */
-    private final int first = 0;
-    
     /**
      * Signifies the first element 
      */
@@ -110,8 +100,7 @@ public class Player implements Runnable {
         this.dealer = dealer;
         
         score = 0;
-        actions = new Vector<Integer>();
-        tokens = new Vector<Integer>();
+        actions = new LinkedBlockingQueue<Integer>(Dealer.setSize);
         freezed = false;
     }
 
@@ -133,17 +122,22 @@ public class Player implements Runnable {
 	        		}
 	        		catch(InterruptedException error) {
 	        		}
-	        		
-        			if (!human)
-		        		synchronized(aiThread) {	
-		        				aiThread.notify();
-		        		}
-	        	}
+	        	
+	        	}  			
         	}
         	
+            synchronized (actions) {
+                if (actions.isEmpty()) { // there is nothing for the player to do
+                    try {
+                        actions.wait(); //if !human - aiThread keeps running and will wake the player
+                    } catch (InterruptedException ignored) {}
+                }
+            }
         	
-        	keyAction();
+            if (!terminate)
+            	keyAction();
         }
+
         if (!human) {
         	synchronized(aiThread) {
         		aiThread.notify();
@@ -151,7 +145,6 @@ public class Player implements Runnable {
         	try { aiThread.join(); } 
             catch (InterruptedException error) {}
         }
-
         env.logger.info("thread " + Thread.currentThread().getName() + " terminated.");
     }
 
@@ -169,11 +162,14 @@ public class Player implements Runnable {
             	synchronized(aiThread) {
 	            	while(dealer.shuffleStatus()) {
 	                	try {
-	                		aiThread.wait(botTiming);
+	                		aiThread.wait();
 	                    } catch (InterruptedException error) {}
 	            	}
+	            	
+	            	try {
+	            		aiThread.wait(botTiming);
+	                } catch (InterruptedException error) {}
             	}
-            	
             	keyPressed(rand.nextInt(env.config.tableSize));
             	
             }
@@ -188,6 +184,9 @@ public class Player implements Runnable {
     public void terminate() {
         // TODO implement
     	terminate = true;
+    	synchronized(actions) {
+    		actions.notify();
+    	}
     }
 
     /**
@@ -197,10 +196,21 @@ public class Player implements Runnable {
      */
     public void keyPressed(int slot) {
         // TODO implement
-    	if (actions.size() <= Dealer.setSize && !this.dealer.shuffleStatus() && table.slotToCard[slot] != null
-    			&& !freezed) 
-    		actions.add(slot);
-    	
+    	synchronized(actions) {
+    		if (!this.dealer.shuffleStatus() && table.slotToCard[slot] != null && !freezed) {
+	    		while(true) {
+			    	
+			    		try {
+			    			actions.add(slot);
+			    			break;
+			    		}
+			    		catch(IllegalStateException  error) {
+			    			
+			    		}
+	    		}
+		    	actions.notify();
+    		}
+    	}
     }
 
     /**
@@ -253,14 +263,12 @@ public class Player implements Runnable {
     
     
     public void keyAction() {
-		if (actions.isEmpty()) 
-			return;
-		Integer slot = actions.remove(first);
+    	
+		Integer slot = actions.remove();
 		
 		// slot already holds a token, therefore removes it
-		if (tokens.contains(slot)) {
+		if (table.hasTokenOn(id, slot)) {
 			table.removeToken(id, slot);
-			tokens.remove(slot);
 			return;
 		}
 		
@@ -271,21 +279,23 @@ public class Player implements Runnable {
 			return;
 		
 		// else, put the token in the right slot
-		tokens.add(slot);
 		table.placeToken(id, slot);
-		amountOfCards++;
+		amountOfCards = table.getAmountOfPlayersCards(id);
 		// 3 tokens are placed, need to check for set
 		if (amountOfCards == Dealer.setSize) {
-			synchronized(dealer) {
-				dealer.addPlayerToCheck(id);
-				dealer.notify();
-			}
 			synchronized(this) {
+				synchronized(dealer) {
+					dealer.addPlayerToCheck(id);
+					dealer.notify();
+				}
 				try {
 					wait();
 				}
 				catch(InterruptedException error) {}
 			}
+			
+			if (terminate)
+				return;
 			if (won)
 				point();
 			else
@@ -294,5 +304,15 @@ public class Player implements Runnable {
 		
 	}
     
+    public void notifyAi() {
+    	if (human)
+    		return;
+    	synchronized(aiThread) {
+    		aiThread.notify();
+    	}
+    }
     
+    public void clearActions() {
+    	actions.clear();
+    }
 }
