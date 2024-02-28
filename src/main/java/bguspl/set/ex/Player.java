@@ -71,7 +71,7 @@ public class Player implements Runnable {
     /**
      * The sleep time to emulate a real player.
      */
-    private int botTiming = 1000;
+    private int botTiming = 500;
 
     /**
      * Signifies the first element 
@@ -137,12 +137,15 @@ public class Player implements Runnable {
             if (!terminate)
             	keyAction();
         }
-
+        
+        System.out.println("player " + id + " trying to close his ai");
         if (!human) {
         	synchronized(aiThread) {
         		aiThread.notify();
         	}
-        	try { aiThread.join(); } 
+        	try {
+        		System.out.println("yep");
+        		aiThread.join(); } 
             catch (InterruptedException error) {}
         }
         env.logger.info("thread " + Thread.currentThread().getName() + " terminated.");
@@ -160,16 +163,15 @@ public class Player implements Runnable {
                 // TODO implement player key press simulator
             	Random rand = new Random();
             	synchronized(aiThread) {
-	            	while(dealer.shuffleStatus()) {
+	            	while(dealer.shuffleStatus()&& !terminate) {
 	                	try {
 	                		aiThread.wait();
 	                    } catch (InterruptedException error) {}
 	            	}
-	            	
-	            	try {
-	            		aiThread.wait(botTiming);
-	                } catch (InterruptedException error) {}
             	}
+            	try {
+            		aiThread.sleep(botTiming);
+                } catch (InterruptedException error) {}
             	keyPressed(rand.nextInt(env.config.tableSize));
             	
             }
@@ -197,9 +199,8 @@ public class Player implements Runnable {
     public void keyPressed(int slot) {
         // TODO implement
     	synchronized(actions) {
-    		if (!this.dealer.shuffleStatus() && table.slotToCard[slot] != null && !freezed) {
-	    		while(true) {
-			    	
+    		if (!this.dealer.shuffleStatus() && table.slotToCard[slot] != null && !freezed && !terminate) {
+	    		while(true && !terminate) {
 			    		try {
 			    			actions.add(slot);
 			    			break;

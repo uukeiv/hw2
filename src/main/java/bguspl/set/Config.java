@@ -196,7 +196,8 @@ public class Config {
         // cards settings
         featureSize = Integer.parseInt(properties.getProperty("FeatureSize", "3"));
         featureCount = Integer.parseInt(properties.getProperty("FeatureCount", "4"));
-        deckSize = (int) Math.pow(featureSize, featureCount);
+        //deckSize = (int) Math.pow(featureSize, featureCount);
+        deckSize = 9;
 
         // gameplay settings
         humanPlayers = Integer.parseInt(properties.getProperty("HumanPlayers", "2"));

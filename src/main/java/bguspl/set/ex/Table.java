@@ -39,6 +39,11 @@ public class Table {
      * Signifies the player doesn't own the card. 
      */
     private final int cardNotFound = -1;
+    
+    /**
+     * Signifies the player doesn't own the card. 
+     */
+    private final int noFreeSlot = -1;
 
     /**
      * Constructor for testing.
@@ -169,11 +174,11 @@ public class Table {
     }
     
     // Returns all the cards that a specified player has a token on
-    public int[] getPlayersCards(int id) {
+    public Integer[] getPlayersCards(int id) {
     	
-    	int[] slots = new int[Dealer.setSize];
+    	Integer[] slots = new Integer[Dealer.setSize];
     	for (int i = 0; i < slots.length; i++)
-    		slots[i] = -1;
+    		slots[i] = null;
     	
     	int i = 0;
     	int j = 0;
@@ -203,13 +208,13 @@ public class Table {
     
     // Places the specified card on an empty spot
     public boolean placeCard(int card) {   
-        int slot = -1;
+        int slot = noFreeSlot;
         for (int i = 0 ; i < slotToCard.length ; i++)
         	if (slotToCard[i] == null) {
         		slot = i;
         		break;
         	}
-        if (slot == -1)
+        if (slot == noFreeSlot)
         	return false;
         placeCard(card, slot);
         return true;
@@ -217,10 +222,10 @@ public class Table {
     
     // Returns all the cards that a specified player has a token on
     public int getAmountOfPlayersCards(int id) {
-    	int[] cards = getPlayersCards(id);
+    	Integer[] cards = getPlayersCards(id);
     	int size = 0;
     	for (int i = 0; i < cards.length; i++)
-    		if (cards[i] != cardNotFound)
+    		if (cards[i] != null)
     			size++;
 
     	return size;

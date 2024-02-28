@@ -50,7 +50,7 @@ public class Dealer implements Runnable {
     /**
      * The time for the dealer to wake up to update the timer if nobody woke him up
      */
-    private final int wakeUpTime = 95;
+    private final int wakeUpTime = 600;
     
     /**
      * The size of each set in the game.
@@ -85,7 +85,7 @@ public class Dealer implements Runnable {
     /**
      * Waking up the dealer to update the timer faster when the warning flag is on 
      */
-    private final int fastWakeUp = 95;
+    private final int fastWakeUp = 30;
 
     /**
      * Signified that a card was not founds
@@ -97,6 +97,16 @@ public class Dealer implements Runnable {
      */
     private final int nonNegative = 0;
     
+    /**
+     * A List containing which cards to remove
+     */
+    private final List<Integer> slotsToRemove;
+    
+    /**
+     * A flag the signifies if the terminate function has been ran
+     */
+    private boolean terminated = false;
+    
     public Dealer(Env env, Table table, Player[] players) {
         this.env = env;
         this.table = table;
@@ -105,6 +115,7 @@ public class Dealer implements Runnable {
         shuffle = true;
         playerCheckQueue = new Vector<Integer>();
         playersThreads = new LinkedList<Thread>();
+        slotsToRemove = new LinkedList<Integer>();
         setSize = env.config.featureSize;
         warn = false;
     }
@@ -126,17 +137,18 @@ public class Dealer implements Runnable {
         placeCardsOnTable();
         updateTimerDisplay(true);
         
-        while (!shouldFinish()) {
+        while (!terminate) {
         	shuffle = false;
         	notifyPlayers();
             timerLoop();
             shuffle = true;
             removeAllCardsFromTable();
             placeCardsOnTable();
-            updateTimerDisplay(true);
+            if (!terminate)
+            	updateTimerDisplay(true);
         }
         
-        if (!playersThreads.isEmpty())
+        if (!terminated)
         	terminate();
         announceWinners();
         try {
@@ -165,17 +177,19 @@ public class Dealer implements Runnable {
     public void terminate() {
         // TODO implement
     	for (int i = players.length - 1; i > -1; i--) {
+			players[i].terminate();
     		synchronized(players[i]) {
     			players[i].notify();
-    			players[i].terminate();
     		}
     		try {
+    			System.out.println("trying to shutdown " + playersThreads.getLast());
     			playersThreads.removeLast().join();
     		}
     		catch(InterruptedException error) {}
     	}
     	
     	terminate = true;
+    	terminated = true;
     }
 
     /**
@@ -192,7 +206,9 @@ public class Dealer implements Runnable {
      */
     private void removeCardsFromTable() {
         // TODO implement
-    	
+    	for (Integer slot : slotsToRemove)
+    		table.removeCard(slot);
+    	slotsToRemove.clear();
     }
 
     /**
@@ -209,9 +225,13 @@ public class Dealer implements Runnable {
     	//only shuffle if all the cards need to be replaced
     	if (numToPlace == env.config.tableSize)
     		Collections.shuffle(deck);
+    	
+    	int counter = 0;
     	// places a randomly chosen card from the deck on the table
-    	for (int i = 0; i < numToPlace; i++)
-    		table.placeCard(deck.remove(i));
+    	while(numToPlace > counter && !deck.isEmpty() ) {
+    		table.placeCard(deck.remove(first));
+    		counter ++ ;
+    	}
     }
 
     /**
@@ -302,13 +322,16 @@ public class Dealer implements Runnable {
     	
     	int playerId = playerCheckQueue.remove(first);
     	Player player = players[playerId];
-    	int[] cards = table.getPlayersCards(playerId);
+    	Integer[] cards = table.getPlayersCards(playerId);
+    	int[]cardsToCheck = new int[cards.length];
     	// checks there are indeed 3 cards
-    	for (int i = 0; i < cards.length; i++)
-    		if (cards[i] == notFound)
+    	for (int i = 0; i < cards.length; i++) {
+    		if (cards[i] == null)
     			return;
+    		cardsToCheck[i] = cards[i];
+    	}
     	
-    	boolean result = env.util.testSet(cards);
+    	boolean result = env.util.testSet(cardsToCheck);
     	// Legal set
     	if (result) {
         	synchronized(player) {
@@ -317,7 +340,9 @@ public class Dealer implements Runnable {
         	}
     		
     		for (int card : cards) 
-    			table.removeCard(table.cardToSlot[card]);
+    			//table.removeCard(table.cardToSlot[card]);
+    			slotsToRemove.add(table.cardToSlot[card]);
+    		removeCardsFromTable();
     		placeCardsOnTable();
     		updateTimerDisplay(true);
     		return;
