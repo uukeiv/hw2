@@ -182,7 +182,6 @@ public class Dealer implements Runnable {
     			players[i].notify();
     		}
     		try {
-    			System.out.println("trying to shutdown " + playersThreads.getLast());
     			playersThreads.removeLast().join();
     		}
     		catch(InterruptedException error) {}
