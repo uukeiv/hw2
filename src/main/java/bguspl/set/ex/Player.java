@@ -138,13 +138,11 @@ public class Player implements Runnable {
             	keyAction();
         }
         
-        System.out.println("player " + id + " trying to close his ai");
         if (!human) {
         	synchronized(aiThread) {
         		aiThread.notify();
         	}
         	try {
-        		System.out.println("yep");
         		aiThread.join(); } 
             catch (InterruptedException error) {}
         }
